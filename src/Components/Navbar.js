@@ -1,16 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 export default function Navbar(props) {
   return (
     <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}>
       <div className="container-fluid">
-        <Link className="navbar-brand" to="/">
-        {/* <a className="navbar-brand" href="#"> */}
+        {/* <Link className="navbar-brand" to="/"> */}
+        <a className="navbar-brand" href="#">
           {props.title}
-          {/* </a> */}
-        </Link>
+          </a>
+        {/* </Link> */}
         <button
           className="navbar-toggler"
           type="button"
@@ -25,19 +25,19 @@ export default function Navbar(props) {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <Link className="nav-link active" aria-current="page" to="/">
-              {/* <a className="nav-link active" aria-current="page" href="#"> */}
+              {/* <Link className="nav-link active" aria-current="page" to="/"> */}
+              <a className="nav-link active" aria-current="page" href="#">
                 Home
-              {/* </a> */}
-              </Link>
+              </a>
+              {/* </Link> */}
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/about">
+              {/* <Link className="nav-link" to="/about"> */}
+                {/* {props.contents} */}
+              <a className="nav-link" href="/about">
                 {props.contents}
-              {/* <a className="nav-link" href="/about">
-                {props.contents}
-                </a> */}
-              </Link>
+                </a>
+              {/* </Link> */}
             </li>
           </ul>
           {/* <form className="d-flex" role="search">
@@ -54,7 +54,6 @@ export default function Navbar(props) {
            */}
         </div>
         <div className="d-flex">
-          <div className="bg-primary rounded mx-2" onClick={()=>{props.toggleMode('primary')}} style={{height: '30px', width:'30px', cursor: 'pointer', border: '0.5px solid #007bff'}}></div>
           <div className="bg-success rounded mx-2" onClick={()=>{props.toggleMode('success')}} style={{height: '30px', width:'30px', cursor: 'pointer', border: '0.5x solid #28a745'}}></div>
           <div className="bg-danger rounded mx-2" onClick={()=>{props.toggleMode('danger')}} style={{height: '30px', width:'30px', cursor: 'pointer', border: '0.5px solid #dc3545'}}></div>
           <div className="bg-warning rounded mx-2" onClick={()=>{props.toggleMode('warning')}} style={{height: '30px', width:'30px', cursor: 'pointer', border: '0.5px solid #ffc107'}}></div>

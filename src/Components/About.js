@@ -6,8 +6,7 @@ export default function About(props) {
     // })
  
     let myStyle = {
-        color : props.mode === 'dark'?'white':'black',
-        // opacity : 
+        color : props.mode === 'dark'?'white':'black'
     }
 
   return (

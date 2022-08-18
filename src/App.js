@@ -1,14 +1,14 @@
 import { useState } from "react";
 import "./App.css";
-import About from "./Components/About";
+// import About from "./Components/About";
 import Alert from "./Components/Alert";
 import Navbar from "./Components/Navbar";
 import TextForm from "./Components/TextForm";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route
-} from "react-router-dom";
+// import {
+//   BrowserRouter as Router,
+//   Switch,
+//   Route
+// } from "react-router-dom";
 
 
 function App() {
@@ -40,7 +40,7 @@ function App() {
     if(mode === 'light'){
       setMode('dark')
       document.body.style.backgroundColor = 'rgba(0,0,0,0.8)'
-      document.body.style.color = 'white'
+      document.body.style.color = 'black'
       showAlert("Dark mode has been enabled", "success")
       
     }
@@ -53,21 +53,21 @@ function App() {
   }
   return (
     <>
-    <Router> 
+    {/* <Router>  */}
       <Navbar title="ReactApp" contents="About" mode={mode} toggleMode={toggleMode}/>
       <Alert alert={alert} />
       <div className="container my-3">
-      <Switch>
+      {/* <Switch> */}
         {/* React does partial matching so to avoid any conflict 'exact' is used in route */}
-          <Route exact path="/about">
+          {/* <Route exact path="/about">
             <About mode={mode}/>
           </Route>
-          <Route exact path="/">
-            <TextForm  showAlert={showAlert} heading="Try TextUtils - Word Counter, Characters Counter and many more" />
-          </Route>
-        </Switch>
+          <Route exact path="/"> */}
+            <TextForm  showAlert={showAlert} heading="Try TextUtils - Word Counter, Characters Counter and many more" mode={mode} />
+          {/* </Route>
+        </Switch> */}
       </div>
-      </Router>
+      {/* </Router> */}
     </>
   );
 }
