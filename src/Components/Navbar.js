@@ -1,16 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function Navbar(props) {
   return (
     <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}>
       <div className="container-fluid">
-        {/* <Link className="navbar-brand" to="/"> */}
-        <a className="navbar-brand" href="#">
+        <Link className="navbar-brand" to="/">
+        {/* <a className="navbar-brand" href="#"> */}
           {props.title}
-          </a>
-        {/* </Link> */}
+          {/* </a> */}
+        </Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -25,18 +25,19 @@ export default function Navbar(props) {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              {/* <Link className="nav-link active" aria-current="page" to="/"> */}
-              <a className="nav-link active" aria-current="page" href="#">
+              <Link className="nav-link active" aria-current="page" to="/">
+              {/* <a className="nav-link active" aria-current="page" href="#"> */}
                 Home
-              </a>
-              {/* </Link> */}
+              {/* </a> */}
+              </Link>
             </li>
             <li className="nav-item">
-              {/* <Link className="nav-link" to="/about"> */}
+              <Link className="nav-link" to="/about">
+                {props.contents}
               {/* <a className="nav-link" href="/about">
                 {props.contents}
                 </a> */}
-              {/* </Link> */}
+              </Link>
             </li>
           </ul>
           {/* <form className="d-flex" role="search">
@@ -52,15 +53,21 @@ export default function Navbar(props) {
           </form>
            */}
         </div>
+        <div className="d-flex">
+          <div className="bg-primary rounded mx-2" onClick={()=>{props.toggleMode('primary')}} style={{height: '30px', width:'30px', cursor: 'pointer'}}></div>
+          <div className="bg-success rounded mx-2" onClick={()=>{props.toggleMode('success')}} style={{height: '30px', width:'30px', cursor: 'pointer'}}></div>
+          <div className="bg-danger rounded mx-2" onClick={()=>{props.toggleMode('danger')}} style={{height: '30px', width:'30px', cursor: 'pointer'}}></div>
+          <div className="bg-warning rounded mx-2" onClick={()=>{props.toggleMode('warning')}} style={{height: '30px', width:'30px', cursor: 'pointer'}}></div>
+        </div>
         <div className={`form-check form-switch text-${props.mode==='light'?'dark':'light'}`}>
-            <input className="form-check-input" type="checkbox" onClick={props.toggleMode} role="switch" id="flexSwitchCheckDefault" />
-            <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Enable Dark Mode</label>  
+            <input className="form-check-input" type="checkbox" onClick={()=>{props.toggleMode(null)}} role="switch" id="flexSwitchCheckDefault" />
+            <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Toggle Mode</label>  
         </div>
       </div>
     </nav>
   );
 }
-
+ 
 Navbar.propTypes = {title: PropTypes.string.isRequired,
                     contents: PropTypes.string} 
 
